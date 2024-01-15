@@ -76,10 +76,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                         if ($latest_properties->have_posts()) {
                             $count = 0;
                             while ($latest_properties->have_posts()) {
-                                $latest_properties->the_post();
-                                // Получаем значение метаполя 'selected_city'
-                                $selected_city_id = get_post_meta(get_the_ID(), 'selected_city', true);
-                                // Выводим картинку записи
+                                $latest_properties->the_post();                             
+                                $selected_city_id = get_post_meta(get_the_ID(), 'selected_city', true);                               
                                 if (has_post_thumbnail()) {
                                     echo '<div class="col-md-4">';
                                     echo '<div class="card">';
@@ -88,7 +86,6 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     echo '</div>';
                                     echo '<div class="card-body">';
                                     echo '<h3 class="card-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
-                                    // Дополнительная информация о недвижимости
                                     $area = get_field('площадь');
                                     $price = get_field('стоимость');
                                     $address = get_field('адрес');
